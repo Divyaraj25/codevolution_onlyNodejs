@@ -17,7 +17,10 @@ if (cluster.isMaster) {
         res.writeHead(200, "ok", { "Content-Type": "text/plain" });
         res.end(`<h1>Home Page ${process.pid}</h1>`);
       } else if (req.url === "/about") {
-        for (let i = 0; i < 6000000000; i++) {}
+        let i = 0;
+        while (i < 6000000000) {
+          i++;
+        }
         res.writeHead(200, "ok", { "Content-Type": "text/plain" });
         res.end(`<h1>About Page ${process.pid}</h1>`);
       }
